@@ -1,4 +1,4 @@
-# analisis_talento_futbolistico_powerBi
+# ⚽ Análisis de Talento Futbolístico con Power BI
 Scouting, rendimiento y valor de mercado basado en datos
 
 📌 Objetivo del proyecto
