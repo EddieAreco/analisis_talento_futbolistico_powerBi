@@ -67,6 +67,8 @@ agregaciones dinámicas
 
 Modelado de datos orientado a análisis
 
+📊 Estructura del dashboard(🔹) y decisiones de diseño(👉)
+
 🔹 KPIs principales 
 
 En la parte superior se muestran indicadores clave:
@@ -81,6 +83,7 @@ Valor de mercado promedio
 
 👉 Permiten tener contexto inmediato y sirven como referencia para evaluar si un jugador está por encima o por debajo del promedio.
 
+
 🔹 Distribución de jugadores por posición
 
 Gráfico de tipo donut que muestra cómo se distribuyen los jugadores según su rol en el campo.
@@ -90,6 +93,7 @@ Gráfico de tipo donut que muestra cómo se distribuyen los jugadores según su 
 abundancia o escasez de talento por posición,
 
 posibles oportunidades de scouting en roles menos saturados.
+
 
 🔹 Overall vs Valor de mercado por categoría
 
@@ -109,6 +113,7 @@ jugadores sobrevalorados,
 
 diferencias claras entre categorías.
 
+
 🔹 Edad vs Overall
 
 Este gráfico analiza la relación entre edad y rendimiento según posición.
@@ -120,6 +125,7 @@ detectar jugadores jóvenes con alto rendimiento,
 comparar picos de rendimiento por rol,
 
 evaluar riesgos asociados a la edad.
+
 
 🔹 Habilidad específica vs Overall (análisis técnico)
 
@@ -133,6 +139,7 @@ identificar áreas de desarrollo,
 
 complementar decisiones de scouting con análisis cualitativo.
 
+
 🔹 Tabla de jugadores
 
 Tabla ordenada por overall que permite:
@@ -142,6 +149,7 @@ identificar rápidamente a los mejores jugadores,
 cruzar información con los gráficos,
 
 realizar análisis más detallados a nivel individual.
+
 
 🎯 Enfoque analítico y valor agregado
 
