@@ -1,4 +1,4 @@
-⚽ Dashboard de Análisis de Scouting de Fútbol - Power BI
+## ⚽ Dashboard de Análisis de Scouting de Fútbol - Power BI
 
 <img width="1486" height="817" alt="image" src="https://github.com/user-attachments/assets/9b635fa7-a0ca-4c33-a895-c16a8b7444e1" />
 
