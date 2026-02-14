@@ -2,7 +2,8 @@
 
 <img width="1486" height="817" alt="image" src="https://github.com/user-attachments/assets/9b635fa7-a0ca-4c33-a895-c16a8b7444e1" />
 
-📌 Objetivo del proyecto
+## 📌 Objetivo del proyecto
+
 Este proyecto nace como un desafío técnico personal para desarrollar habilidades avanzadas en análisis de datos y visualización de información mediante Power BI. El objetivo principal fue trabajar con un dataset de gran volumen (18,278 registros) y alta complejidad dimensional (89 atributos por jugador) para:
 
 Aplicar técnicas avanzadas de modelado dimensional y transformación de datos
@@ -19,9 +20,10 @@ Analizar distribución geográfica del talento futbolístico
 Evaluar relaciones entre calidad, costo de fichaje y salarios
 Tomar decisiones basadas en datos para la contratación de jugadores
 
-El enfoque del dashboard no es simplemente mostrar estadísticas FIFA, sino traducir 89 atributos raw en insights estratégicos que faciliten la toma de decisiones en entornos de scouting real.
+El enfoque del dashboard no es simplemente mostrar estadísticas FIFA, sino traducir 89 atributos en insights estratégicos que faciliten la toma de decisiones en entornos de scouting real.
 
-🧠 Preguntas clave que responde el dashboard
+## 🧠 Preguntas clave que responde el dashboard
+
 El dashboard fue diseñado para responder, entre otras, las siguientes preguntas:
 Análisis de Oportunidades de Inversión:
 
@@ -49,7 +51,7 @@ Análisis Comparativo:
 
 Estas preguntas guían toda la estructura analítica y visual del dashboard.
 
-🗂️ Dataset utilizado
+## 🗂️ Dataset utilizado
 Fuente: FIFA Players Dataset - Kaggle
 El dataset contiene información exhaustiva de 18,278 jugadores de fútbol extraída del videojuego FIFA, desagregada en 89 atributos que incluyen:
 Datos de Identificación:
@@ -78,7 +80,6 @@ Características Físicas:
 
 Altura
 Peso
-Pie preferido
 Skill moves
 Weak foot
 
@@ -120,7 +121,8 @@ Estructurales (distribución geográfica, composición por categoría)
 Exploratorios (descubrimiento de oportunidades)
 
 
-🔧 Herramientas y tecnologías utilizadas
+## 🔧 Herramientas y tecnologías utilizadas
+
 Power BI Desktop
 Plataforma principal de desarrollo del dashboard.
 Power Query (M Language)
@@ -133,11 +135,13 @@ Creación de tablas dimensionales: diseño de tablas de referencia para clasific
 DAX (Data Analysis Expressions)
 Utilizado para:
 Columnas calculadas (6 índices compuestos):
-daxAttacking Index = 
-VAR score_finishing = SWITCH(TRUE(), [attacking_finishing] >= 80, 30, ...)
-VAR score_positioning = SWITCH(TRUE(), [mentality_positioning] >= 80, 25, ...)
-...
-RETURN suma_ponderada_0_100
+Attacking Index  
+Defense Index
+Goalkeeper Index
+Physic Index
+Skill Index
+Technical and Movilitie Index 
+
 Medidas agregadas (14 medidas):
 
 Contadores: Total players, Elite Players, Young Prospects
@@ -164,7 +168,8 @@ Arquitectura dimensional star schema con:
 1 jerarquía: nationality → club (drill-down geográfico)
 
 
-📊 Metodología de Creación de Índices Compuestos
+## 📊 Metodología de Creación de Índices Compuestos
+
 Concepto
 Los índices compuestos son métricas derivadas que sintetizan múltiples atributos raw en un único valor normalizado (escala 0-100). Esta técnica permite:
 
@@ -184,6 +189,7 @@ attacking_crossing (15 pts máx) - Centros
 attacking_heading_accuracy (10 pts máx) - Cabezazos
 
 Interpretación: >80 = Elite ofensivo | 60-79 = Bueno | <60 = Limitado
+
 2. Defense Index (0-100)
 Mide capacidad defensiva combinando:
 
@@ -194,6 +200,7 @@ defending_sliding_tackle (15 pts máx) - Barridas
 power_strength (10 pts máx) - Fuerza física
 
 Interpretación: >80 = Elite defensivo | 60-79 = Confiable | <60 = Vulnerable
+
 3. Physic Index (0-100)
 Mide atributos físicos combinando:
 
@@ -204,6 +211,7 @@ power_strength (15 pts máx) - Fuerza
 power_jumping (15 pts máx) - Salto
 
 Interpretación: >75 = Atleta de elite | 50-74 = Promedio | <50 = Limitaciones físicas
+
 4. Skill Index (0-100)
 Mide habilidad técnica combinando:
 
@@ -214,6 +222,7 @@ skill_long_passing (15 pts máx) - Pase largo
 skill_fk_accuracy (10 pts máx) - Tiros libres
 
 Interpretación: >80 = Técnicamente dotado | 60-79 = Competente | <60 = Básico
+
 5. Technical and Movilitie Index (0-100)
 Mide técnica + movilidad combinando:
 
@@ -224,6 +233,7 @@ mentality_vision (15 pts máx) - Visión de juego
 mentality_composure (10 pts máx) - Compostura
 
 Interpretación: >80 = Playmaker | 60-79 = Organizador | <60 = Funcional
+
 6. Goalkeeper Index (0-100)
 Mide capacidad de portero combinando:
 
@@ -234,16 +244,17 @@ goalkeeping_handling (15 pts máx) - Manejo
 goalkeeping_kicking (10 pts máx) - Despeje
 
 Interpretación: >85 = Elite | 70-84 = Confiable | <70 = Riesgoso
+
 Validación de Índices
 Los índices fueron validados mediante matriz heatmap que confirma coherencia táctica:
 
-ST: Attacking Index alto (61.23) + Defense Index bajo (8.77) ✓
-CB: Defense Index alto (67.39) + Attacking Index bajo (4.61) ✓
-CM: Balance entre Attack (40.85) y Defense (42.69) ✓
+ST (Striker): Attacking Index alto (61.23) + Defense Index bajo (8.77) ✓
+CB (Central Back): Defense Index alto (67.39) + Attacking Index bajo (4.61) ✓
+CM (Central Midfield): Balance entre Attack (40.85) y Defense (42.69) ✓
 
+## 📊 Estructura del dashboard (🔹) y decisiones de diseño (👉)
 
-📊 Estructura del dashboard y decisiones de diseño
-🔹 KPIs principales (6 cards superiores)
+## 🔹 KPIs principales (6 cards superiores)
 Cards implementadas:
 
 Cantidad de jugadores - Total del dataset contextual
@@ -256,7 +267,7 @@ Jóvenes Prospectos 🌟 - Cantidad en categorías "Fuera de serie" + "Potencial
 👉 Decisión de diseño:
 Estas métricas proporcionan contexto inmediato antes de profundizar en análisis granular. Funcionan como norte estratégico para interpretar el resto del dashboard.
 
-🔹 Tabla detallada con formato condicional
+## 🔹 Tabla detallada con formato condicional
 Columnas (14 total):
 
 Identificación: name, Overall, Fase Edad, Tipo inversión, Edad, Posicion
@@ -297,7 +308,7 @@ Click en Donut (categoría "Esporádico") → Ordenar por "ROI Potencial" → Ga
 Click en Treemap (país "Spain") → Ordenar por "Overall" → Talentos españoles
 
 
-🔹 Distribución por categoría (Donut Chart)
+## 🔹 Distribución por categoría (Donut Chart)
 Categorías (7 niveles):
 Segmentación automática basada en overall y potential:
 
@@ -318,7 +329,7 @@ Elite: 0.3%, ROI Value 1.3
 Conclusión: Segmento Esporádico ofrece 27x mejor ROI que Elite
 
 
-🔹 Jugadores con mayor potencial futuro (Column + Line Chart)
+## 🔹 Jugadores con mayor potencial futuro (Column + Line Chart)
 Configuración:
 
 Barras: Future Potencial (potential - overall) - TOP 10
@@ -331,13 +342,12 @@ Casos de uso:
 
 Identificar jóvenes promesas baratas con alto margen de mejora
 Comparar costo vs beneficio potencial
-Filtrar por posición y encontrar el mejor prospecto de esa posición
+Filtrar por posición o por nacionalidad o por club o por categoría y encontrar el mejor prospecto
 
-
-🔹 Perfil multidimensional por posición (Matrix Heatmap)
+## 🔹 Perfil multidimensional por posición (Matrix Heatmap)
 Configuración:
 
-Filas: Posiciones (ST, CB, CM, etc.) - TOP 10
+Filas: Posiciones (ST, CB, CM, etc.)
 Columnas: 6 índices compuestos (Attacking, Defense, Physic, Skill, Technical, Goalkeeper)
 Valores: AVERAGE de cada índice
 Formato: Escala de color rojo-amarillo-verde (0-50-100)
@@ -356,8 +366,7 @@ Verde intenso = fortaleza de la posición en ese índice
 Rojo intenso = debilidad típica de la posición
 Amarillo = capacidad intermedia
 
-
-🔹 Curva de rendimiento por edad (Area Chart)
+## 🔹 Curva de rendimiento por edad (Area Chart)
 Configuración:
 
 Eje X: Edad (16-45 años)
@@ -378,7 +387,7 @@ Decisiones de contratación vs edad (¿pagar premium por pico o invertir en crec
 Identificar jugadores fuera de la curva (alto rendimiento a edad temprana o tardía)
 
 
-🔹 Oportunidad de inversión (Horizontal Bar Chart)
+## 🔹 Oportunidad de inversión (Horizontal Bar Chart)
 Configuración:
 
 Eje Y: Nombre de jugador (TOP 15)
@@ -399,12 +408,12 @@ Filtrar por país (ej: Brazil) → Mejores gangas brasileñas
 Sin filtros → Mejores oportunidades absolutas del mercado
 
 
-🔹 Treemap jugadores por nacionalidad (con drill-down)
+## 🔹 Treemap jugadores por nacionalidad (con drill-down)
 Configuración:
 
-Jerarquía: nationality → club
+Jerarquía: nationality → club → jugador
 Tamaño: Cantidad de jugadores
-Color: AVERAGE(overall) - escala de verde
+Color: Nacionalidad
 Interactividad: Drill-down habilitado
 
 👉 Decisión de diseño:
@@ -412,6 +421,7 @@ Aprovecha la jerarquía creada para análisis geográfico en dos niveles:
 
 Nivel país: ¿Qué países tienen más talento?
 Nivel club (drill-down): ¿Qué clubes de ese país concentran jugadores?
+Nivel jugador (drill-down): ¿Qué tipo de jugadores hay en cada club según su categoría?
 
 Utilidad estratégica:
 
@@ -423,7 +433,8 @@ Explorar clubes específicos de un país
 Interacción:
 Click en país → Drill down → Ver distribución por clubes de ese país
 
-🎯 Decisiones de diseño avanzadas
+## 🎯 Decisiones de diseño avanzadas
+
 ¿Por qué NO hay slicer de posición?
 Evaluación realizada: Consideré incluir un slicer de posición, pero decidí que:
 
@@ -458,7 +469,7 @@ Detectar patrones (ej: todos los CB tienen verde en Defense)
 
 Esto transforma la tabla de "datos" a "información visual".
 
-🚀 Conclusiones principales
+## 🚀 Conclusiones principales
 Insights sobre el mercado de jugadores
 
 Concentración de talento elite es extremadamente baja
@@ -475,14 +486,12 @@ ROI Value Elite: 1.3 puntos por millón
 Ratio: 27.6x mejor eficiencia en jugadores de nivel medio
 Implicación: Para equipos con presupuesto limitado, priorizar categoría Esporádico maximiza ROI
 
-
 Validación de coherencia táctica de índices
 
 ST: Attacking Index 61.23 | Defense Index 8.77 ✓
 CB: Defense Index 67.39 | Attacking Index 4.61 ✓
 CM: Balance Attack 40.85 | Defense 42.69 ✓
 Implicación: Los índices compuestos reflejan correctamente roles tácticos reales
-
 
 Curva de rendimiento sigue patrón esperado
 
